@@ -1,0 +1,14 @@
+@keyframes loading {
+    0%   {background-color: rgb(104, 104, 104);}
+    50% {background-color: rgb(172, 172, 172);}
+    100%   {background-color: rgb(104, 104, 104);}
+
+  }
+.loading-image{
+    border-radius: 20px;
+    width: 400px;
+    height: 400px;
+    margin: 20px;
+    text-align: center;
+    animation: loading 2s infinite linear;
+}
