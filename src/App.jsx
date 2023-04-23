@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { Query } from './components/query.jsx'
-import { Image } from './components/image.jsx'
+import { Query } from './components/Query.jsx'
+import { Image } from './components/Image.jsx'
 import './App.css'
 
 function App() {
