@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { ImageWidget } from './widgets/ImageWidget';
-import { ImageLoading } from './widgets/ImageLoading';
+import { ImageWidget } from './widgets/ImageWidget.jsx';
+import { ImageLoading } from './widgets/ImageLoading.jsx';
 
 export const Image = () => {
     const [query, setQuery] = useState({prompt: "", n: 1});
