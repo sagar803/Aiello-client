@@ -9,39 +9,30 @@ main{
 }
 .main-logo{
     margin: 10px 40px;
-    height: 400px;
+    height: 300px;
+    width: 300px;
     border-radius: 10px;
 }
 
 /* Logo description */
 .main-des{
     font-family: 'Poppins';
-    margin: auto 15px;
-    width: 800px;
+    width: 600px;
     text-align: center;
     justify-content: center;
 }
 .aiello-bullet{
     font-weight: 100;
-    font-size: 3.5rem;    
+    font-size: 3rem;
+    margin: 1.5rem;    
 }
 .main-sub-des{
     font-weight: 200;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
-/* Cards button */
-.card-container{
-    display: flex;
-    margin: 6rem auto;
-    margin-top: 0;
-}
-.query-card{
-    background-color: #988dcede;
-}
-.image-card{
-    background-color: #85bea4d7;
-}
+/* Cards  */
+
 /*
 d4b8bf
 85bea4 
@@ -54,8 +45,21 @@ d4b8bf
 ac482c
 */
 
+.card-container{
+    display: flex;
+    margin: 6rem auto;
+    margin-top: 0;
+}
+.query-card{
+    background-color: #988dcede;
+}
+.image-card{
+    background-color: #85bea4d7;
+}
+
 .card{
-    width: 300px;
+    max-width: 95%;
+    width: 250px;
     margin: 50px;
     border-radius: 10px;
     text-align: center;
@@ -70,7 +74,7 @@ ac482c
     border: none;
     border-radius: 10px;
     height: 60px;
-    width: 300px;
+    width: 200px;
     background-color: #ffffff46;
     margin: 20px 0;
 }
@@ -82,20 +86,50 @@ ac482c
 @media (max-width: 950px) {
     .main-logo{
         margin: 10px 40px;
-        height: 350px;
-        width: 350px;
+        height: 200px;
+        width: 200px;
         border-radius: 10px;
     }
     .logo-and-des{
         flex-direction: column;
         align-items: center;
-        margin: 7rem auto;
+        margin: 5rem auto;
     }    
 
+    /* Logo description */
     .main-des{
-        width: 600px;
+        width: 80%;
+    }
+    .aiello-bullet{
+        font-size: 2rem;    
+    }
+    .main-sub-des{
+        font-weight: 200;
+        font-size: 1rem;
+    }
+
+    /* Cards */    
+    .card{
+        width: 240px;
+        padding:20px;
+        margin: 30px auto;
     }
     .card-container{
         flex-direction: column;
     }
+    .card button{
+        color: rgb(255, 255, 255);
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 10px;
+        height: 50px;
+        width: 150px;
+        background-color: #ffffff46;
+        margin: 20px 0;
+    }
+    .card button:hover {
+        box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.918);
+    }
+    
+
 }
