@@ -9,9 +9,8 @@ export const Navbar = (props) => {
         <p className='logo'>AIELLO</p>
         <ul>
             <li onClick={homePage}>Home</li>
-            <li>About</li>
-            <li>Contact</li>
-            <li>Report Bug</li>
+            <li>Chat assistance</li>
+            <li>Generate images</li>
         </ul>
     </nav>
   )

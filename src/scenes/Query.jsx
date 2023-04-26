@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+import './Query.css'
 //import { apiUrl } from '../api';
 
 export const Query = () => {

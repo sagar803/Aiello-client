@@ -35,10 +35,10 @@ nav ul{
     display: flex;
     flex-direction: row;
     list-style-type: none;
-    width: 350px;
 }
 nav ul li{
-    margin: 10px;
+    margin: 15px;
+    font-weight: 350;
 }
 nav ul li:hover {
     border-bottom: 1px solid white;

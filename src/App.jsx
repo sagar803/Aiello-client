@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import { Home } from './scenes/Home.jsx'
 import { Navbar } from './components/Navbar.jsx'
 import { Footer } from './components/Footer.jsx'
-import { Query } from './components/Query.jsx'
-import { Image } from './components/Image.jsx'
+import { Query } from './scenes/Query.jsx'
+import { Image } from './scenes/Image.jsx'
 import './App.css'
 
 function App() {
