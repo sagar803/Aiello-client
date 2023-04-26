@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState } from 'react'
+//import { apiUrl } from '../api';
 
 export const Query = () => {
     const [prompt, setPrompt] = useState("");
@@ -8,6 +9,8 @@ export const Query = () => {
   
     const handleSubmit = async (event) => {
       event.preventDefault();
+      const endpoint = "query"
+      //const url = apiUrl(endpoint);
       setLoading(true);
       setPromptResult("");
       console.log(prompt);

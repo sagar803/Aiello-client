@@ -1,13 +1,15 @@
 import React from 'react'
 import { useState } from 'react'
-import { ImageWidget } from './widgets/ImageWidget.jsx';
-import { ImageLoading } from './widgets/ImageLoading.jsx';
+import { ImageWidget } from '../components/widgets/ImageWidget.jsx';
+import { ImageLoading } from '../components/widgets/ImageLoading.jsx';
+//import { apiUrl } from '../api.js';
 
 export const Image = () => {
     const [query, setQuery] = useState({prompt: "", n: 1});
     const [promptResult, setPromptResult] = useState([]);
     const [loading, setLoading] = useState(false);
-  
+//    const endpoint = "generateImage"
+//    const url = apiUrl(endpoint);
     const handleSubmit = async (event) => {
       event.preventDefault();
       setLoading(true);
@@ -26,7 +28,6 @@ export const Image = () => {
       setLoading(false);
       const data = await response.json();
       setPromptResult(data.result);
-      console.log(data.result[0].url);
     }
     const handleChange = (event) => {
         setQuery({...query, prompt: event.target.value});
