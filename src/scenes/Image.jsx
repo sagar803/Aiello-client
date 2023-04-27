@@ -30,6 +30,9 @@ export const Image = () => {
       const data = await response.json();
       setPromptResult(data.result);
     }
+    const nullInputHandler = (event) => {
+      event.preventDefault();
+    }
     const handleChange = (event) => {
         setQuery({...query, prompt: event.target.value});
     }
@@ -39,20 +42,21 @@ export const Image = () => {
     }
   
     return (
-      <>
-        <form onSubmit={handleSubmit}>
+      <main className='image-main' style={{  padding : promptResult.length ? '0.5rem 15px' : '8rem 15px' }}>
+        <h1>Generate Creative Images</h1>
+        <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
           <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
             <select onChange={handleCountChange} onSubmit={handleSubmit}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
             </select>
-          <button>Go</button>
+          <button className={loading ? 'loader' : ''}></button>
         </form>
-        {loading && <ImageLoading/>}
-        {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
-      </>
+        <p className="helper-text" style={{display : loading ? 'block' : 'none' }}>Reload page if it's taking too long to respond*</p>
+        <div className="image-container">
+          {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
+        </div>
+      </main>
     )
-}
+  }
