@@ -56,32 +56,35 @@ ac482c
 .image-card{
     background-color: #85bea4d7;
 }
+.code-card{
+    background-color: #8a7577d2;
+}
 
 .card{
     max-width: 95%;
-    width: 250px;
+    width: 180px;
     margin: 50px;
     border-radius: 10px;
     text-align: center;
-    padding: 50px;
+    padding: 30px 50px;
 }
 .card-heading{
-    font-size: 30px;
+    font-size: 1.8rem;
 }
 .card button{
+    font-size: 1rem;
     color: rgb(255, 255, 255);
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     border: none;
     border-radius: 10px;
-    height: 60px;
-    width: 200px;
+    height: 50px;
+    width: 100%;
     background-color: #ffffff46;
     margin: 20px 0;
 }
 .card button:hover {
     box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.918);
 }
-
 
 @media (max-width: 950px) {
     .main-logo{

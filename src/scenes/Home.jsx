@@ -35,6 +35,11 @@ export const Home = (Props) => {
                     <p className="card-des">AI generates stunning images with ease and efficiency.</p>
                     <button onClick={imagePage}>Launch</button>
                 </div>
+                <div className='card code-card'>
+                    <p className='card-heading'>Code Assistance</p>
+                    <p className="card-des">AI-powered code completion, debugging, and suggestions.</p>
+                    <button >Soon...</button>
+                </div>
             </div>
             {/*
             <div className='cta'>

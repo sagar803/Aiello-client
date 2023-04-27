@@ -29,18 +29,23 @@ export const Query = () => {
       const data = await response.json();
       setPromptResult(data.result);
     }
+    const nullInputHandler = (event) => {
+      event.preventDefault();
+    }
     const handleChange = (event) => {
       setPrompt(event.target.value);
     }
-  
+    //<i class="fa-regular fa-arrow-right-to-arc"></i>
     return (
-      <main>
-        <form onSubmit={handleSubmit}>
+      <main style={{  padding : promptResult? '2rem 15px' : '10rem 15px' }}>
+        <h1 >Get Chat Assistance</h1>
+        <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
           <input placeholder='Hi! Prompt Me...' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
-          <button>Submit</button>
-          {loading && (<div className='query-loading'></div>)}
+          <button className={loading ? 'loader' : ''}></button>
         </form>
-        <p>{promptResult}</p>
+        <p className='query-result' style={{ display: promptResult ? 'block' : 'none' }}>
+          {promptResult}
+        </p>
       </main>
     )
 }  

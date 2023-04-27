@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <footer>
         <p className='logo'>AIELLO</p>
-        <div className='.social-icons'>
+        <div className='.social-icons-anchor'>
             <a href=""><i class="fa-brands fa-linkedin-in"></i></a>
             <a href=""><i class="fa-brands fa-github"></i></a>
             <a href=""><i class="fa-brands fa-twitter"></i></a>

@@ -1,5 +1,5 @@
 footer{
-    background-color: #ac482c ;
+    background-color: #2e313eab;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,10 +35,11 @@ a{
 }
 
 /*social-links*/
-
+.social-icons-anchor, a{
+    margin: 1.5rem;
+}
 i{
     font-size: 20px;
-    margin: 0 1.5rem;
 }
 /**/
 .navigation{
@@ -47,7 +48,7 @@ i{
     padding: 0;
 }
 .navigation li{
-    margin: 1rem 1.5rem;
+    margin: 1rem 0;
 }
 hr{
     width: 50%;
@@ -55,15 +56,17 @@ hr{
 
 /* For mobiles*/
 @media (max-width: 900px) {
+    .social-icons-anchor, a{
+        margin: 0.7rem;
+    }
     i{
         font-size: 1.5rem;
-        margin: 0.2rem 1rem 0.2rem 1rem;
     }
     .navigation{
         flex-direction: column;
     }
     .navigation li{
-        font-size: 15px ;
+        font-size:15px ;
         text-align: center;
         margin: 0.2rem;
     }

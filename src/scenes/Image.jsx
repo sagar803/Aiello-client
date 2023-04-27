@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import { ImageWidget } from '../components/widgets/ImageWidget.jsx';
 import { ImageLoading } from '../components/widgets/ImageLoading.jsx';
+import './Image.css'
 //import { apiUrl } from '../api.js';
 
 export const Image = () => {
@@ -48,7 +49,7 @@ export const Image = () => {
                 <option value="4">4</option>
                 <option value="5">5</option>
             </select>
-          <button>Generate Image</button>
+          <button>Go</button>
         </form>
         {loading && <ImageLoading/>}
         {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
