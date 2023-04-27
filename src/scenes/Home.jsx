@@ -6,12 +6,12 @@ export const Home = (Props) => {
     const [page, setPage] = useState("home");
     const queryPage = () => {
         Props.setPage("query");
+        window.scrollTo(0, 0);
     }
     const imagePage = () => {
         Props.setPage("image");
+        window.scrollTo(0, 0);
     }
-    console.log(page);
-
     return (
         <main>
             <div className='logo-and-des'>
@@ -28,7 +28,7 @@ export const Home = (Props) => {
                 <div className='card query-card'>
                     <p className='card-heading'>Chat Assistance</p>
                     <p className="card-des">Providing intelligent assistance for various tasks and topics.</p>
-                    <button onClick={queryPage}>Launch</button>
+                    <button onClick={queryPage} >Launch</button>
                 </div>
                 <div className='card image-card'>
                     <p className='card-heading'>Image Generation</p>

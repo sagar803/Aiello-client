@@ -4,9 +4,8 @@ main{
     transition: 0.2s linear;
 }
 h1{
-    margin: 0.5rem;
+    text-align: center;
     font-weight: 100;
-    font-size: 3.5rem;
 }
 
 /* Form */
@@ -74,15 +73,6 @@ select option {
     display: flex;
     align-items: center;
 }
-
-
-
-
-
-
-
-
-
 .image-form .loader {
     border: 5px dotted rgba(255, 255, 255, 0.7);
     border-radius: 50%;
@@ -90,6 +80,9 @@ select option {
     height: 50px;
     animation: spin 2s linear infinite;
 }
+
+
+
 
 @keyframes spin {
     to {

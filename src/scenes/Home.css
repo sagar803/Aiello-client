@@ -50,6 +50,17 @@ ac482c
     margin: 6rem auto;
     margin-top: 0;
 }
+.card{
+    max-width: 95%;
+    width: 180px;
+    margin: 50px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px 40px;
+}
+.card-heading{
+    font-size: 1.5rem;
+}
 .query-card{
     background-color: #988dcede;
 }
@@ -59,20 +70,11 @@ ac482c
 .code-card{
     background-color: #8a7577d2;
 }
-
-.card{
-    max-width: 95%;
-    width: 180px;
-    margin: 50px;
-    border-radius: 10px;
-    text-align: center;
-    padding: 30px 50px;
-}
-.card-heading{
-    font-size: 1.8rem;
+.card-des{
+    font-size: 14px;
 }
 .card button{
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: rgb(255, 255, 255);
     font-size: 1.2rem;
     border: none;
@@ -102,13 +104,14 @@ ac482c
     /* Logo description */
     .main-des{
         width: 80%;
+        max-width: 600px;
     }
     .aiello-bullet{
-        font-size: 2rem;    
+        font-size: 1.8rem;    
     }
     .main-sub-des{
         font-weight: 200;
-        font-size: 1rem;
+        font-size: 0.8rem;
     }
 
     /* Cards */    

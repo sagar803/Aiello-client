@@ -43,7 +43,7 @@ export const Image = () => {
   
     return (
       <main className='image-main' style={{  padding : promptResult.length ? '0.5rem 15px' : '8rem 15px' }}>
-        <h1>Generate Creative Images</h1>
+        <h1 style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
         <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
           <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
             <select onChange={handleCountChange} onSubmit={handleSubmit}>

@@ -4,13 +4,20 @@ export const Navbar = (props) => {
   const homePage = () => {
     props.setPage('home')
   }
+  const ChatPage = () => {
+    props.setPage('query')
+  }
+  const ImagePage = () => {
+    props.setPage('image')
+  }
+
   return (
     <nav>
         <p className='logo'>AIELLO</p>
         <ul>
             <li onClick={homePage}>Home</li>
-            <li>Chat assistance</li>
-            <li>Generate images</li>
+            <li onClick={ChatPage}>Chat assistance</li>
+            <li onClick={ImagePage}>Generate images</li>
         </ul>
     </nav>
   )

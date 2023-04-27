@@ -39,7 +39,7 @@ export const Query = () => {
     //<i class="fa-regular fa-arrow-right-to-arc"></i>
     return (
       <main className='chat-main' style={{  padding : promptResult ? '2rem 15px' : '8rem 15px' }}>
-        <h1 >Get Chat Assistance</h1>
+        <h1 style={{ fontSize : promptResult ? '2rem' : '3rem' }} >Chat Assistance</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
           <input placeholder='Hi! Prompt Me...' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
           <button className={loading ? 'loader' : ''}></button>
