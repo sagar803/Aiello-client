@@ -12,11 +12,12 @@ export const Query = () => {
       event.preventDefault();
       const endpoint = "query"
       //const url = apiUrl(endpoint);
+      //"https://aiello-backend.up.railway.app/query"
       setLoading(true);
       setPromptResult("");
       console.log(prompt);
       const response = await fetch(
-        "https://aiello-backend.up.railway.app/query",
+        "https://aiello-backend.onrender.com/query",
         {
           method: "POST",
           headers: {

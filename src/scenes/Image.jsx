@@ -11,13 +11,14 @@ export const Image = () => {
     const [loading, setLoading] = useState(false);
 //    const endpoint = "generateImage"
 //    const url = apiUrl(endpoint);
+//        "https://aiello-backend.up.railway.app/generateImage"
     const handleSubmit = async (event) => {
       event.preventDefault();
       setLoading(true);
       setPromptResult([]);
       console.log(query.prompt);
       const response = await fetch(
-        "https://aiello-backend.up.railway.app/generateImage",
+        "https://aiello-backend.onrender.com/generateImage",
         {
           method: "POST",
           headers: {

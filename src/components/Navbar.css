@@ -17,6 +17,7 @@ d4b8bf
 ac482c
 */
 nav .logo{
+    cursor: cell;
     text-align: center;
     position: relative;
     font-size: 1.5rem;

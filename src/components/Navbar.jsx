@@ -13,7 +13,7 @@ export const Navbar = (props) => {
 
   return (
     <nav>
-        <p className='logo'>AIELLO</p>
+        <p onClick={homePage} className='logo'>AIELLO</p>
         <ul>
             <li onClick={homePage}>Home</li>
             <li onClick={ChatPage}>Chat assistance</li>
