@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import './Navbar.css'
 
 export const Navbar = (props) => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [moblieMenu, setMoblieMenu] = useState(false);
   const homePage = () => {
     props.setPage('home')
   }
@@ -15,28 +15,20 @@ export const Navbar = (props) => {
   }
 
   const menuItem = () => {
-    console.log("hir")
+    if(moblieMenu){
+      setMoblieMenu(false)
+    }
+    else{
+      setMoblieMenu(true)
+    }
     const navItem = document.querySelector(".nav-items");
     navItem.classList.toggle("active");
   }
-  /*
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 900);
-    };
-    handleResize(); // call the function once to set the initial state
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-  */
-
   return (
     <nav>
         <p onClick={homePage} className='logo'>AIELLO</p>
         <div onClick={menuItem} className='hamburger'>
-          <div className="line"></div>
-          <div className="line"></div>
-          <div className="line"></div>
+          {moblieMenu ? <i class="fa-solid fa-arrow-up"></i> : <i class="fa-solid fa-arrow-down"></i> }
         </div>
         <ul className='nav-items'>
             <li onClick={homePage}>Home</li>

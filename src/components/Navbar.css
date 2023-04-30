@@ -31,13 +31,6 @@ nav .logo{
 
 }
 
-/*
-@keyframes colorChange{
-    0% { color:rgb(232, 93, 43)}
-    50% { color: white;}
-    100% { color:rgb(232, 93, 43)}
-}
-*/
 nav .logo:hover{
     letter-spacing: 10px;
 }
@@ -60,6 +53,11 @@ nav ul li:hover {
     background-color: rgb(232, 93, 43);
 }
 
+.hamburger{
+    display: none;
+}
+
+
 @media (max-width: 900px) {
     nav{
         justify-content: space-between;
@@ -71,19 +69,15 @@ nav ul li:hover {
     }
     .hamburger{
         cursor: pointer;
-    }
-    .line{
-        height: 3px;
-        width: 25px;
-        background-color: #fefefe;
-        margin: 5px;
+        display: block;
     }
     nav ul{
-        padding: 10px 15px;
+        background-color: #2e313e;
+        padding: 5px 15px;
         position: absolute;
         display: none;
         top: 60px;
-        right: 10%;
+        right: 2%;
         border: 2px solid grey;
         border-radius: 5px;
     }
@@ -92,7 +86,7 @@ nav ul li:hover {
     }
     nav ul li{
         font-size: 15px;
-        margin: 5px;
+        margin: 5px 0px;
         font-weight: 200;
         transition: 0.2s;
     }
