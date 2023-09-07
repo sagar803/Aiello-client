@@ -16,7 +16,7 @@ export const Query = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/query`, {
+      const response = await fetch(`${import.meta.env.VITE_API_LIVE}/query`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'

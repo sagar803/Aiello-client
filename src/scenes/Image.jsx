@@ -17,7 +17,7 @@ export const Image = () => {
       setLoading(true);
 
       try {
-          const response = await fetch( `${import.meta.env.VITE_API_URL}/generateImage`,
+          const response = await fetch( `${import.meta.env.VITE_API_LIVE}/generateImage`,
           {
             method: "POST",
             headers: {
