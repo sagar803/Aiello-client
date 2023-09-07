@@ -27,18 +27,33 @@ export const Home = (Props) => {
             <div className="card-container">
                 <div className='card query-card'>
                     <p className='card-heading'>Chat Assistance</p>
+                    <hr className='hr-vertical'/>
                     <p className="card-des">Providing intelligent assistance for various tasks and topics.</p>
-                    <button onClick={queryPage} >Launch</button>
+                    <button onClick={queryPage}>Launch</button>
                 </div>
                 <div className='card image-card'>
                     <p className='card-heading'>Image Generation</p>
+                    <hr className='hr-vertical'/>
                     <p className="card-des">AI generates stunning images with ease and efficiency.</p>
                     <button onClick={imagePage}>Launch</button>
                 </div>
                 <div className='card code-card'>
                     <p className='card-heading'>Code Assistance</p>
+                    <hr className='hr-vertical'/>
                     <p className="card-des">AI-powered code completion, debugging, and suggestions.</p>
-                    <button >Soon...</button>
+                    <button className='disabled'>Soon...</button>
+                </div>
+                <div className='card audio-mimic-card'>
+                    <p className='card-heading'>Audio Mimicking</p>
+                    <hr className='hr-vertical'/>
+                    <p className="card-des">AI can mimic audio to replicate sounds or voices.</p>
+                    <button className='disabled'>Soon...</button>
+                </div>
+                <div className='card music-card'>
+                    <p className='card-heading'>Music Generation</p>
+                    <hr className='hr-vertical'/>
+                    <p className="card-des">AI generates music using machine learning to compose melodies and harmonies.</p>
+                    <button className='disabled'>Soon...</button>
                 </div>
             </div>
             {/*

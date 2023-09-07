@@ -34,33 +34,56 @@ main{
 /* Cards  */
 
 /*
-d4b8bf
-85bea4 
-2e313e  
-988dce 
-8a7577
-5b514c
-5d7182
-4e785d 
-ac482c
+#988dce 
+#85bea4 
+#8a7577
+#5d7182
+#d4b8bf
+#2e313e  
+#5b514c
+#4e785d 
+#ac482c
 */
 
 .card-container{
-    display: flex;
-    margin: 6rem auto;
-    margin-top: 0;
+    width: 75%;
 }
 .card{
-    max-width: 95%;
-    width: 180px;
-    margin: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 150px;
+    margin: 50px 0;
     border-radius: 10px;
-    text-align: center;
     padding: 20px 40px;
 }
 .card-heading{
-    font-size: 1.5rem;
+    flex-basis: 20%;
+    font-size: 1.6rem;
 }
+.hr-vertical{
+    width: 100px;
+    transform: rotate(90deg);
+}
+.card-des{
+    flex-basis: 60%;
+    font-size: 18px;
+}
+.card button{
+    flex-basis: 15%;
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    border: none;
+    border-radius: 10px;
+    height: 50px;
+    background-color: #ffffff46;
+    padding: 15px;
+    transition: 0.4s;
+}
+.card button:hover {
+    box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.918);
+}
+
 .query-card{
     background-color: #988dcede;
 }
@@ -70,23 +93,13 @@ ac482c
 .code-card{
     background-color: #8a7577d2;
 }
-.card-des{
-    font-size: 14px;
+.audio-mimic-card{
+    background-color: #5d7182;
 }
-.card button{
-    font-size: 0.8rem;
-    color: rgb(255, 255, 255);
-    font-size: 1.2rem;
-    border: none;
-    border-radius: 10px;
-    height: 50px;
-    width: 100%;
-    background-color: #ffffff46;
-    margin: 20px 0;
+.music-card{
+    background-color: #ac482c;
 }
-.card button:hover {
-    box-shadow: 0px 0px 1px 1px rgba(255, 255, 255, 0.918);
-}
+
 
 @media (max-width: 950px) {
     .main-logo{
@@ -114,14 +127,13 @@ ac482c
         font-size: 0.8rem;
     }
 
-    /* Cards */    
+    /* Cards */  
+    .hr-vertical{
+       width: 20px;
+    }  
     .card{
-        width: 240px;
-        padding:20px;
-        margin: 30px auto;
-    }
-    .card-container{
         flex-direction: column;
+        height: 300px;
     }
     .card button{
         color: rgb(255, 255, 255);
@@ -129,7 +141,7 @@ ac482c
         border: none;
         border-radius: 10px;
         height: 50px;
-        width: 150px;
+        width: 80px;
         background-color: #ffffff46;
         margin: 20px 0;
     }
