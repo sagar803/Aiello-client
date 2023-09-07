@@ -3,44 +3,64 @@ import { useState } from 'react'
 import { ImageWidget } from '../components/widgets/ImageWidget.jsx';
 import { ImageLoading } from '../components/widgets/ImageLoading.jsx';
 import './Image.css'
-//import { apiUrl } from '../api.js';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const Image = () => {
     const [query, setQuery] = useState({prompt: "", n: 1});
     const [promptResult, setPromptResult] = useState([]);
     const [loading, setLoading] = useState(false);
-//    const endpoint = "generateImage"
-//    const url = apiUrl(endpoint);
-//        "https://aiello-backend.up.railway.app/generateImage"
+
     const handleSubmit = async (event) => {
       event.preventDefault();
       setLoading(true);
-      setPromptResult([]);
-      console.log(query.prompt);
-      const response = await fetch(
-        "https://aiello-backend.onrender.com/generateImage",
-        {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(query)
+
+      try {
+          const response = await fetch( `${import.meta.env.VITE_API_URL}/generateImage`,
+          {
+            method: "POST",
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(query)
+          }
+        );
+        if(response.ok){
+          const data = await response.json();
+          setPromptResult(data.result);
+          toast.success("API call successful!");
         }
-      );
-      setLoading(false);
-      const data = await response.json();
-      setPromptResult(data.result);
-    }
-    const nullInputHandler = (event) => {
-      event.preventDefault();
-    }
-    const handleChange = (event) => {
-        setQuery({...query, prompt: event.target.value});
-    }
-    const handleCountChange = (event) => {
-        const value = parseInt(event.target.value);
-        setQuery({...query, n: value});
-    }
+        else {
+          // Handle different error scenarios
+          if (response.status === 429) {
+            toast.error("Too Many Requests. Please try again later.");
+          } else if (response.status === 404) {
+            toast.error("Resource not found.");
+          } else {
+            toast.error("An error occurred. Please try again.");
+          }
+          console.error("Error occurred during API call:", response.status);
+          }
+        } 
+        catch (error) {
+          toast.error("An error occurred. Please try again.");
+          console.error("Error occurred during API call:", error.message);
+        }
+        finally{
+          setLoading(false);
+        }
+      }
+        const nullInputHandler = (event) => {
+          event.preventDefault();
+        }
+        const handleChange = (event) => {
+            setQuery({...query, prompt: event.target.value});
+        }
+        const handleCountChange = (event) => {
+            const value = parseInt(event.target.value);
+            setQuery({...query, n: value});
+        }
   
     return (
       <main className='image-main' style={{  padding : promptResult.length ? '0.5rem 15px' : '8rem 15px' }}>
@@ -58,6 +78,7 @@ export const Image = () => {
         <div className="image-container">
           {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
         </div>
+        <ToastContainer />
       </main>
     )
   }
