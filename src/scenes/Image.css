@@ -1,4 +1,6 @@
-main{
+.image-main{
+    display: flex;
+    flex-direction: column;
     min-height: 30rem;
     align-items: center;
     transition: 0.2s linear;
@@ -51,9 +53,9 @@ select option {
     cursor: pointer;
 }
 .helper-text{
-    font-weight: 100;
-    font-size: 13px;
-    color: grey;
+    font-weight: 300;
+    font-size: 14px;
+    color: rgb(158, 158, 158);
 }
 
 /*images*/

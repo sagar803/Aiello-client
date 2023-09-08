@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
 import logo from '../asset/logo.png'
 import './Home.css'
-
+import { useNavigate } from "react-router-dom";
+import { Navbar } from '../components/Navbar';
 export const Home = (Props) => {
     const [page, setPage] = useState("home");
-    const queryPage = () => {
-        Props.setPage("query");
-        window.scrollTo(0, 0);
-    }
-    const imagePage = () => {
-        Props.setPage("image");
-        window.scrollTo(0, 0);
-    }
+    const navigate = useNavigate();
+
     return (
-        <body>
+        <>
+            <Navbar />
             <main className='landing-page-main'>
                 <div className='overlay'>
                     <div className='logo-and-des'>
@@ -31,13 +27,13 @@ export const Home = (Props) => {
                     <p className='card-heading'>Chat Assistance</p>
                     <hr className='hr-vertical'/>
                     <p className="card-des">Providing intelligent assistance for various tasks and topics.</p>
-                    <button onClick={queryPage}>Launch</button>
+                    <button onClick={() => navigate('/query')} >Launch</button>
                 </div>
                 <div className='card image-card'>
                     <p className='card-heading'>Image Generation</p>
                     <hr className='hr-vertical'/>
                     <p className="card-des">AI generates stunning images with ease and efficiency.</p>
-                    <button onClick={imagePage}>Launch</button>
+                    <button onClick={() => navigate('/image')}>Launch</button>
                 </div>
                 <div className='card code-card'>
                     <p className='card-heading'>Code Assistance</p>
@@ -58,6 +54,6 @@ export const Home = (Props) => {
                     <button className='disabled'>Soon...</button>
                 </div>
             </div>
-        </body>
+        </>
     )
 }

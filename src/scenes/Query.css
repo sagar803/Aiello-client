@@ -1,4 +1,6 @@
-main{
+.chat-main{
+    display: flex;
+    flex-direction: column;
     min-height: 30rem;
     align-items: center;
     transition: 0.2s linear;

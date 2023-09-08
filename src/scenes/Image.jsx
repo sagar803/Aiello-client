@@ -5,6 +5,7 @@ import { ImageLoading } from '../components/widgets/ImageLoading.jsx';
 import './Image.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Navbar } from '../components/Navbar.jsx';
 
 
 export const Image = () => {
@@ -63,22 +64,25 @@ export const Image = () => {
         }
   
     return (
-      <main className='image-main' style={{  padding : promptResult.length ? '0.5rem 15px' : '8rem 15px' }}>
-        <h1 style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
-        <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
-          <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
-            <select onChange={handleCountChange} onSubmit={handleSubmit}>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-          <button className={loading ? 'loader' : ''}></button>
-        </form>
-        <p className="helper-text" style={{display : loading ? 'block' : 'none' }}>Reload page if it's taking too long to respond*</p>
-        <div className="image-container">
-          {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
-        </div>
-        <ToastContainer />
-      </main>
+      <>
+        <Navbar />
+        <main className='image-main' style={{  padding : promptResult.length ? '0.5rem 15px' : '8rem 15px' }}>
+          <h1 style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
+          <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
+            <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
+              <select onChange={handleCountChange} onSubmit={handleSubmit}>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+              </select>
+            <button className={loading ? 'loader' : ''}></button>
+          </form>
+          <p className="helper-text" style={{display : loading ? 'block' : 'none' }}>Reload page if it's taking too long to respond*</p>
+          <div className="image-container">
+            {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
+          </div>
+          <ToastContainer />
+        </main>
+      </>
     )
   }
