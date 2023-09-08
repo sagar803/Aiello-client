@@ -1,9 +1,11 @@
 nav {
+    position: absolute;
+    width: 100%;
     display: flex;
     justify-content: space-around;
     align-items: center;
     height: 70px;
-    background-color: #2e313e;
+    background-color: transparent;
     
 }
 /*
@@ -60,9 +62,7 @@ nav ul li:hover {
 
 @media (max-width: 900px) {
     nav{
-        justify-content: space-between;
-        padding-left: 5%;
-        padding-right: 5%;
+        justify-content: space-around;
     }
     nav .logo{
         font-size: 1.5rem;

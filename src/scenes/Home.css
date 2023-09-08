@@ -1,12 +1,28 @@
-main{
+.landing-page-main{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../asset/main-bg.jpg');
+    background-size: cover;
+}
+.overlay{
+    height: 100vh;
+    width: 100%;
+    background-color: #101010d7;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
 }
-/* logo */
 .logo-and-des{
+    padding-top: 100px;
+    width: min(80%, 900px);
     display: flex;
-    margin: 6rem auto;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
+
+/* logo */
 .main-logo{
     margin: 10px 40px;
     height: 300px;
@@ -15,21 +31,35 @@ main{
 }
 
 /* Logo description */
-.main-des{
+.des{
     font-family: 'Poppins';
-    width: 600px;
+    width: 50%;
     text-align: center;
     justify-content: center;
-}
-.aiello-bullet{
-    font-weight: 100;
-    font-size: 3rem;
-    margin: 1.5rem;    
-}
-.main-sub-des{
     font-weight: 200;
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
+.main-heading{
+    font-weight: 100;
+    font-size: 4rem;
+    margin: 3.2rem;    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Cards  */
 
@@ -46,14 +76,19 @@ main{
 */
 
 .card-container{
-    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 150px 0;
+    width: 100%;
 }
 .card{
     display: flex;
     justify-content: space-around;
     align-items: center;
+    width: 80%;
     height: 150px;
-    margin: 50px 0;
+    margin: 25px 0;
     border-radius: 10px;
     padding: 20px 40px;
 }
@@ -102,38 +137,36 @@ main{
 
 
 @media (max-width: 950px) {
+    .logo-and-des{
+        flex-direction: column;
+        align-items: center;
+    }    
     .main-logo{
         margin: 10px 40px;
         height: 200px;
         width: 200px;
         border-radius: 10px;
     }
-    .logo-and-des{
-        flex-direction: column;
-        align-items: center;
-        margin: 5rem auto;
-    }    
 
     /* Logo description */
-    .main-des{
-        width: 80%;
-        max-width: 600px;
+    .des{
+        font-size: 12px;
+        width: min(600px , 90%);
     }
-    .aiello-bullet{
+    .main-heading{
         font-size: 1.8rem;    
     }
-    .main-sub-des{
-        font-weight: 200;
-        font-size: 0.8rem;
-    }
+
 
     /* Cards */  
     .hr-vertical{
-       width: 20px;
-    }  
+        display: none;
+    }
     .card{
         flex-direction: column;
-        height: 300px;
+        height: fit-content;
+        width: 60%;
+        text-align: center;
     }
     .card button{
         color: rgb(255, 255, 255);
@@ -141,7 +174,7 @@ main{
         border: none;
         border-radius: 10px;
         height: 50px;
-        width: 80px;
+        width: 60%;
         background-color: #ffffff46;
         margin: 20px 0;
     }
