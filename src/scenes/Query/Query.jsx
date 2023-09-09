@@ -1,13 +1,14 @@
 import React from 'react'
 import { useState } from 'react'
-import './Music.css'
+import './Query.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Navbar } from '../../components/Navbar';
+//import { apiUrl } from '../api';
 
-export const Music = () => {
+export const Query = () => {
   const [prompt, setPrompt] = useState("");
-  const [promptResult, setPromptResult] = useState("");
+  const [promptResult, setPromptResult] = useState([]);
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (event) => {
@@ -15,7 +16,7 @@ export const Music = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_LIVE}/music`, {
+      const response = await fetch(`${import.meta.env.VITE_API_LIVE}/query`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -44,6 +45,7 @@ export const Music = () => {
     } finally {
       setLoading(false);
     }
+    
   };
 
   const nullInputHandler = (event) => {
@@ -56,26 +58,17 @@ export const Music = () => {
   return (
     <>
       <Navbar />
-      <main className='music-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
-        <h1 style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Generate Music</h1>
+      <main className='chat-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
+        <h1 style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Chat Assistance</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
-          <input placeholder='What kind of music you would love....' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
+          <input placeholder='Hi! Prompt Me...' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
           <button className={loading ? 'loader' : ''}></button>
         </form>
-        <p className="helper-text" style={{display : loading ? 'block' : 'none' }}>It usually takes 3 to 5 minutes*</p>
-        <div className='music-result-container' style={{ display: promptResult.length ? 'block' : 'none' }}>
-          {
-            promptResult.length !== 0 &&  (
-              <audio controls>
-                <source src={promptResult} type="audio/wav" />
-                Your browser does not support the audio element.
-              </audio>
-            )
-          }
+        <div className='query-result-container' style={{ display: promptResult.length ? 'block' : 'none' }}>
+          {promptResult && promptResult.map((item, index) => <p key={index}>{item}</p> )}
         </div>
         <ToastContainer />
       </main>
     </>
   );
 };
-

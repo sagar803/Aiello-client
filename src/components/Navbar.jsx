@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './Navbar.css'
 import { useNavigate } from 'react-router-dom';
 
-export const Navbar = () => {
+export const Navbar = ({positionValue}) => {
   const [moblieMenu, setMoblieMenu] = useState(false);
   const navigate = useNavigate();
   const menuItem = () => {
@@ -15,9 +15,10 @@ export const Navbar = () => {
     }
     const navItem = document.querySelector(".nav-items");
     navItem.classList.toggle("active");
+    console.log(position);
   }
   return (
-    <nav>
+    <nav style={{position: positionValue}}>
         <p onClick={(() => navigate('/'))} className='logo'>AIELLO</p>
         <div onClick={menuItem} className='hamburger'>
           {moblieMenu ? <i class="fa-solid fa-arrow-up"></i> : <i class="fa-solid fa-arrow-down"></i> }

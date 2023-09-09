@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from './scenes/Home.jsx'
+import { Home } from './scenes/Home/Home.jsx'
 import { Footer } from './components/Footer.jsx'
-import { Query } from './scenes/Query.jsx'
-import { Image } from './scenes/Image.jsx'
+import { Query } from './scenes/Query/Query.jsx'
+import { Image } from './scenes/Image/Image.jsx'
 import { Music } from './scenes/music/Music.jsx';
 
 import './App.css'
