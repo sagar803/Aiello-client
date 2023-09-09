@@ -1,13 +1,10 @@
 .music-main{
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    text-align: center;
+    min-height: 75vh;
     align-items: center;
     transition: 0.3s linear;
-}
-.heading{
-    text-align: center;
-    font-weight: 100;
 }
 form{
     display: flex;
@@ -58,6 +55,9 @@ form button{
 }
   
 @media (max-width: 900px){
+    .music-main{
+        min-height: 80vh;
+    }
     form input{
         width:200px;
     }

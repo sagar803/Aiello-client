@@ -59,7 +59,7 @@ export const Query = () => {
     <>
       <Navbar />
       <main className='chat-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
-        <h1 style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Chat Assistance</h1>
+        <h1 className='font-weight-100' style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Chat Assistance</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
           <input placeholder='Hi! Prompt Me...' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
           <button className={loading ? 'loader' : ''}></button>

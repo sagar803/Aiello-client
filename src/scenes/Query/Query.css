@@ -1,13 +1,10 @@
 .chat-main{
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    min-height: 75vh;
+    text-align: center;
     align-items: center;
     transition: 0.3s linear;
-}
-.heading{
-    text-align: center;
-    font-weight: 100;
 }
 form{
     display: flex;
@@ -41,9 +38,8 @@ form button{
     min-height: 100px;
     border-radius: 15px;
     background-color: #2e313e9b;
-    padding: 30px 50px;
-    width: 800px;
-    max-width: 80%;
+    padding: 15px 15px;
+    width: min(800px, 80%);
     color: rgb(201, 201, 201);
 }
 
@@ -62,6 +58,9 @@ form button{
 }
   
 @media (max-width: 900px){
+    .chat-main{
+        min-height: 80vh;
+    }
     form input{
         width:200px;
     }
