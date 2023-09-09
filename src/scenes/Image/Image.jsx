@@ -67,7 +67,7 @@ export const Image = () => {
       <>
         <Navbar />
         <main className='image-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
-          <h1 style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
+          <h1 className='heading' style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
           <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
             <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
               <select onChange={handleCountChange} onSubmit={handleSubmit}>
