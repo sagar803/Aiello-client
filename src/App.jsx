@@ -1,43 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Home } from './scenes/Home/Home.jsx'
 import { Footer } from './components/Footer.jsx'
-import { Query } from './scenes/Query/Query.jsx'
-import { Image } from './scenes/Image/Image.jsx'
-import { Music } from './scenes/music/Music.jsx';
+import { Navbar } from './components/Navbar.jsx'
 
 import './App.css'
+import { AnimatedRoutes } from './components/AnimatedRoutes/AnimatedRoutes.jsx';
 
 function App() {
-
   return (
     <div className='App'>
       <BrowserRouter>
-        <Routes>
-            <Route
-              path="*"
-              element={ <p>Invalid Url</p>}
-            />
-
-            <Route
-              path="/"
-              element={ <Home />}
-            />
-            <Route
-              path="/query"
-              element={ <Query /> }
-            />
-            <Route
-              path="/image"
-              element={ <Image /> }
-            />
-            <Route
-              path="/music"
-              element={ <Music /> }
-            />
-        </Routes>
+        <Navbar positionValue='absolute'/>
+        <AnimatedRoutes />
+        <Footer/>
       </ BrowserRouter>
-      <Footer/>
     </div>
   )
 }

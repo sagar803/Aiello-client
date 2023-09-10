@@ -1,13 +1,18 @@
 import logo from '../../asset/logo.png'
 import './Home.css'
 import { useNavigate } from "react-router-dom";
-import { Navbar } from '../../components/Navbar';
+import { motion } from "framer-motion"
+
+
 export const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <>
-            <Navbar positionValue='absolute' />
+        <motion.div
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            exit={{opacity: 0}}
+        >
             <main className='landing-page-main'>
                 <div className='overlay'>
                     <div className='logo-and-des'>
@@ -52,6 +57,6 @@ export const Home = () => {
                     <button className='disabled'>Soon...</button>
                 </div>
             </div>
-        </>
+        </motion.div>
     )
 }

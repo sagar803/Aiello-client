@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './Music.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Navbar } from '../../components/Navbar';
+import { motion } from "framer-motion"
 
 export const Music = () => {
   const [prompt, setPrompt] = useState("");
@@ -55,8 +55,13 @@ export const Music = () => {
   };
   return (
     <>
-      <Navbar />
-      <main className='music-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
+      <motion.main 
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+        className='music-main' 
+        style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+      >
         <h1 className='font-weight-100' style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Generate Music</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
           <input placeholder='What kind of music you would love....' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
@@ -74,7 +79,7 @@ export const Music = () => {
           }
         </div>
         <ToastContainer />
-      </main>
+      </motion.main>
     </>
   );
 };

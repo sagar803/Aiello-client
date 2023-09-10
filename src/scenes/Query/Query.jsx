@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './Query.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Navbar } from '../../components/Navbar';
+import { motion } from "framer-motion"
 //import { apiUrl } from '../api';
 
 export const Query = () => {
@@ -57,8 +57,13 @@ export const Query = () => {
   };
   return (
     <>
-      <Navbar />
-      <main className='chat-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
+      <motion.main 
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+        className='chat-main' 
+        style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+      >
         <h1 className='font-weight-100' style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Chat Assistance</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>
           <input placeholder='Hi! Prompt Me...' type="text" value={prompt} onChange={handleChange} onSubmit={handleSubmit}/>
@@ -68,7 +73,7 @@ export const Query = () => {
           {promptResult && promptResult.map((item, index) => <p key={index}>{item}</p> )}
         </div>
         <ToastContainer />
-      </main>
+      </motion.main>
     </>
   );
 };

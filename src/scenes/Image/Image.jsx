@@ -1,11 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 import { ImageWidget } from '../../components/widgets/ImageWidget.jsx';
-import { ImageLoading } from '../../components/widgets/ImageLoading.jsx';
 import './Image.css'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Navbar } from '../../components/Navbar.jsx';
+import { motion } from "framer-motion"
 
 
 export const Image = () => {
@@ -65,8 +64,13 @@ export const Image = () => {
   
     return (
       <>
-        <Navbar />
-        <main className='image-main' style={{  padding : promptResult.length ? '8% 15px' : '15% 15px' }}>
+        <motion.main 
+          initial={{opacity: 0}}
+          animate={{opacity: 1}}
+          exit={{opacity: 0}}
+          className='image-main' style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+        >
+            
           <h1 className='font-weight-100' style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>
           <form className='image-form' onSubmit={query.prompt ? handleSubmit : nullInputHandler}>
             <input type="text" placeholder='Image Description' value={query.prompt} onChange={handleChange} onSubmit={handleSubmit}/>
@@ -82,7 +86,7 @@ export const Image = () => {
             {promptResult.map((image) => <ImageWidget key={image.id} url={image.url} />)}
           </div>
           <ToastContainer />
-        </main>
+        </motion.main>
       </>
     )
   }
