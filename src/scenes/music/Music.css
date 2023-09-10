@@ -1,8 +1,9 @@
 .music-main{
     display: flex;
     flex-direction: column;
+    padding-top: 30vh;
+    min-height: 90vh;
     text-align: center;
-    min-height: 75vh;
     align-items: center;
     transition: 0.3s linear;
 }
@@ -55,9 +56,6 @@ form button{
 }
   
 @media (max-width: 900px){
-    .music-main{
-        min-height: 80vh;
-    }
     form input{
         width:200px;
     }

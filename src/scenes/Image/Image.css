@@ -1,7 +1,8 @@
 .image-main{
     display: flex;
     flex-direction: column;
-    min-height: 50vh;
+    padding-top: 30vh;
+    min-height: 90vh;
     text-align: center;
     align-items: center;
     transition: 0.3s linear;
@@ -90,9 +91,6 @@ select option {
 }
 
 @media (max-width: 900px){
-    .image-main{
-        min-height: 80vh;
-    }
     .image-form input{
         width:200px;
     }

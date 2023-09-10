@@ -1,7 +1,8 @@
 .chat-main{
     display: flex;
     flex-direction: column;
-    min-height: 75vh;
+    padding-top: 30vh;
+    min-height: 90vh;
     text-align: center;
     align-items: center;
     transition: 0.3s linear;
@@ -58,9 +59,6 @@ form button{
 }
   
 @media (max-width: 900px){
-    .chat-main{
-        min-height: 80vh;
-    }
     form input{
         width:200px;
     }

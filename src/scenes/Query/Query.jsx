@@ -62,7 +62,7 @@ export const Query = () => {
         animate={{opacity: 1}}
         exit={{opacity: 0}}
         className='chat-main' 
-        style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+        style={{  paddingTop: promptResult.length ? '15vh' : 'undefined' }}
       >
         <h1 className='font-weight-100' style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Chat Assistance</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>

@@ -68,7 +68,7 @@ export const Image = () => {
           initial={{opacity: 0}}
           animate={{opacity: 1}}
           exit={{opacity: 0}}
-          className='image-main' style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+          className='image-main' style={{  paddingTop: promptResult.length ? '15vh' : 'undefined' }}
         >
             
           <h1 className='font-weight-100' style={{ fontSize : promptResult[0] ? '2rem' : '3rem' }} > Generate Creative Images</h1>

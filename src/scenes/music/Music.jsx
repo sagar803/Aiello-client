@@ -59,8 +59,9 @@ export const Music = () => {
         initial={{opacity: 0}}
         animate={{opacity: 1}}
         exit={{opacity: 0}}
+        
         className='music-main' 
-        style={{  padding : promptResult.length ? '12% 15px' : '15% 15px' }}
+        style={{  paddingTop: promptResult.length ? '15vh' : 'undefined' }}
       >
         <h1 className='font-weight-100' style={{ fontSize : promptResult.length ? '2rem' : '3rem' }} >Generate Music</h1>
         <form onSubmit={prompt ? handleSubmit : nullInputHandler}>

@@ -21,7 +21,7 @@ export const Navbar = ({positionValue}) => {
     <nav style={{position: positionValue}}>
         <p onClick={(() => navigate('/'))} className='logo'>AIELLO</p>
         <div onClick={menuItem} className='hamburger'>
-          {moblieMenu ? <i class="fa-solid fa-arrow-up"></i> : <i class="fa-solid fa-arrow-down"></i> }
+          {moblieMenu ? <i class="fa-solid fa-arrow-up"></i> : <i class="fa-solid fa-bars"></i> }
         </div>
         <ul className='nav-items'>
             <li onClick={(() => navigate('/'))}>Home</li>
