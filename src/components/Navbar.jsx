@@ -15,7 +15,6 @@ export const Navbar = ({positionValue}) => {
     }
     const navItem = document.querySelector(".nav-items");
     navItem.classList.toggle("active");
-    console.log(position);
   }
   return (
     <nav style={{position: positionValue}}>

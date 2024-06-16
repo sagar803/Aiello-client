@@ -16,7 +16,7 @@ export const Query = () => {
     setLoading(true);
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_LIVE}/query`, {
+      const response = await fetch(`${import.meta.env.VITE_API_LIVE}/query/gemini`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -70,7 +70,7 @@ export const Query = () => {
           <button className={loading ? 'loader' : ''}></button>
         </form>
         <div className='query-result-container' style={{ display: promptResult.length ? 'block' : 'none' }}>
-          {promptResult && promptResult.map((item, index) => <p key={index}>{item}</p> )}
+          {promptResult && promptResult?.map((item, index) => <p key={index}>{item}</p> )}
         </div>
         <ToastContainer />
       </motion.main>

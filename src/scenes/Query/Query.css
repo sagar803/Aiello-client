@@ -3,7 +3,6 @@
     flex-direction: column;
     padding-top: 30vh;
     min-height: 90vh;
-    text-align: center;
     align-items: center;
     transition: 0.3s linear;
 }
@@ -39,7 +38,7 @@ form button{
     min-height: 100px;
     border-radius: 15px;
     background-color: #2e313e9b;
-    padding: 15px 15px;
+    padding: 15px 30px;
     width: min(800px, 80%);
     color: rgb(201, 201, 201);
 }
