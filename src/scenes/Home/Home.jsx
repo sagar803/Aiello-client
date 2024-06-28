@@ -2,6 +2,9 @@ import logo from '../../asset/download.png'
 import './Home.css'
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
+import { getUser } from '../../services/authService';
+import { useEffect, useState } from 'react';
+
 
 export const Home = () => {
     const navigate = useNavigate();

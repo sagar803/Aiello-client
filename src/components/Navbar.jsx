@@ -12,11 +12,13 @@ import {
 } from "../components/ui/dropdown-menu";
 import { LogOut, User, User2 } from "lucide-react";
 import { Button } from "../components/ui/button";
+import useAuth from '../services/authContext';
+import { googleLoginUrl } from '../services/authService';
+import googleIcon from '../asset/google.png'
 
 export const Navbar = () => {
+  const {authenticated, userData, logout} = useAuth();
   const [activeTab, setActiveTab] = useState('home');
-  const [authenticated, setAuthenticated] = useState(true)
-  const [moblieMenu, setMoblieMenu] = useState(false);
   const navigate = useNavigate();
   
   const handleNavigation = (tab, path) => {
@@ -38,31 +40,32 @@ export const Navbar = () => {
               <DropdownMenu className="relative">
                 <DropdownMenuTrigger asChild>
                   <Button
-                    className="select-none flex items-center bg-black text-white border-2 border-gray-500 h-12 hover:bg-blue-600"
+                    className="select-none flex items-center border-2 border-gray-500 h-12 hover:bg-blue-300 rounded-lg"
                     buttonVariants="default"
                   >
-                    <span>{"randomuser"}</span>
-                    <User2 className="h-8 w-8 m-2 border-2 border-black p-1 rounded-full" />
+                    <span>{userData.username}</span>
+                    <img className='h-8 w-8 m-0 ml-2' src={userData.picture} />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent className="w-40 bg-black text-white">
+                <DropdownMenuContent className=" bg-gray-100">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer" >
                     <User className="mr-2 h-4 w-4" />
-                    <span>{"randomuser"}</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
+                    <span>{userData.email}</span>
+                  </DropdownMenuItem >
+                  <DropdownMenuItem className="cursor-pointer">
                     <LogOut className="mr-2 h-4 w-4" />
+                    <span onClick={() => logout()}>Logout</span>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
               <div
-                className="bg-black flex items-center justify-center cursor-pointer rounded w-[100px] px-5 py-2 h-10 text-white"
-                onClick={handleAuth}
+                className="flex items-center justify-center cursor-pointer rounded px-3 py-2 h-10 border border-gray-500"
               >
-                {authenticated ? <>Sign&nbsp;Out</> : <>Sign&nbsp;In</>}
+                <a className='m-0' href={googleLoginUrl}>{"Sign in with "}</a><img className='m-0 w-16 object-contain' src={googleIcon} />
+
               </div>
             )}
       </nav>
@@ -72,17 +75,7 @@ export const Navbar = () => {
 }
 
 
-// nav {
-//   width: 100%;
-//   display: flex;
-//   justify-content: space-around;
-//   align-items: center;
-//   height: 80px;
-//   background-color: transparent;
-//   box-sizing: border-box;
-  
-// }
-// /*
+
 // d4b8bf
 // 85bea4 
 // 2e313e  
@@ -92,71 +85,3 @@ export const Navbar = () => {
 // 5d7182
 // 4e785d 
 // ac482c
-// */
-// nav .logo{
-//   width: 150px;
-//   cursor: cell;
-//   text-align: center;
-//   font-size: 2rem;
-//   font-weight: bold;
-//   font-family: 'Poppins' ,'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-//   font-weight: 500;
-//   letter-spacing: 10px;
-//   animation: colorChange infinite;    
-//   transition: letter-spacing 0.1s linear;
-
-// }
-
-// nav .logo:hover{
-//   letter-spacing: 12px;
-// }
-
-// nav ul{
-//   display: flex;
-//   flex-direction: row;
-//   list-style-type: none;
-// }
-// nav ul li{
-//   border-radius: 20px;
-//   font-size: 15px;
-//   padding: 10px 15px;
-//   margin: 10px;
-//   font-weight: 300;
-//   transition: 0.2s;
-//   cursor: pointer;
-// }
-// nav ul li:hover {
-//   background-color: rgb(212, 100, 59);
-// }
-
-// .hamburger{
-//   display: none;
-// }
-
-
-// @media (max-width: 900px) {
-//   nav {
-//       padding: 20px;
-//       justify-content: space-between;
-//   }
-//   .hamburger{
-//       user-select: none;
-//       cursor: pointer;
-//       display: block;
-//   }
-//   nav ul{
-//       padding: 3px 15px;
-//       position: absolute;
-//       display: none;
-//       top: 60px;
-//       right: 2%;
-//       border-radius: 5px;
-//   }
-//   .active{
-//       display: block;
-//   }
-//   nav ul li{
-//       background-color: #2e313ef4;
-//       margin: 5px 0px;
-//   }
-// }

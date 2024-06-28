@@ -4,7 +4,7 @@ import { Home } from '../../scenes/Home/Home.jsx';
 import { Query } from '../../scenes/Query/Query.jsx'
 import { Image } from '../../scenes/Image/Image.jsx'
 import { Music } from '../../scenes/music/Music.jsx';
-
+import Auth from '../../scenes/Auth.jsx';
 
 export const AnimatedRoutes = () => {
     const location = useLocation();
@@ -12,6 +12,7 @@ export const AnimatedRoutes = () => {
         <div>
             <Routes location={location} key={location}>
                 <Route path="*" element={ <p>Invalid Url</p>}/>
+                <Route path="auth" element={<Auth />} />
                 <Route path="/" element={ <Home />}/>
                 <Route path="/query" element={ <Query /> }/>
                 <Route path="/image" element={ <Image /> }/>
