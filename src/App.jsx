@@ -8,12 +8,15 @@ import { AnimatedRoutes } from './components/AnimatedRoutes/AnimatedRoutes.jsx';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App p-2'>
       <BrowserRouter>
         <Navbar positionValue='absolute'/>
         <AnimatedRoutes />
         <Footer/>
       </ BrowserRouter>
+      <h1 className="text-3xl font-bold underline">
+      Hello world!
+    </h1>
     </div>
   )
 }

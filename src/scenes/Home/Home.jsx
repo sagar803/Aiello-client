@@ -1,4 +1,4 @@
-import logo from '../../asset/logo.png'
+import logo from '../../asset/download.png'
 import './Home.css'
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
@@ -12,8 +12,8 @@ export const Home = () => {
             animate={{opacity: 1}}
             exit={{opacity: 0}}
         >
-            <main className='landing-page-main'>
-                <div className='overlay'>
+            <main className="w-full flex items-center justify-center">
+               <div className='w-11/12 bg-gradient-to-br from-slate-300 to-white rounded-2xl'>
                     <div className='logo-and-des'>
                         <img  className='main-logo' src={logo} alt="logo" />
                         <p className='des'>AIello is a versatile app that leverages AI technology to generate high-quality images and provide chat assistance for a wide range of tasks and topics, making it an essential tool for many industries.</p>
@@ -21,6 +21,7 @@ export const Home = () => {
                     <p className='main-heading'>
                         AIELLO, All-in-One Creative Hub
                     </p>
+
                 </div>
             </main>
             <div className="card-container">
