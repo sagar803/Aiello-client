@@ -1,7 +1,7 @@
 // authService.js
 import axios from "axios";
 
-const API_URL = "http://localhost:6001";
+const API_URL = process.env.VITE_API_LIVE;
 
 export const login = async (username, password) => {
   const response = await axios.post(`${API_URL}/login`, { username, password });
