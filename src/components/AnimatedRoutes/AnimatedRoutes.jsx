@@ -1,9 +1,9 @@
 import React from 'react'
 import { Routes, Route , useLocation} from "react-router-dom";
-import { Home } from '../../scenes/Home/Home.jsx';
-import { Query } from '../../scenes/Query/Query.jsx'
-import { Image } from '../../scenes/Image/Image.jsx'
-import { Music } from '../../scenes/music/Music.jsx';
+import { Home } from '../../scenes/Home.jsx';
+import { Query } from '../../scenes/Query.jsx';
+import { Image } from '../../scenes/Image.jsx';
+import { Music } from '../../scenes/Music.jsx';
 import Auth from '../../scenes/Auth.jsx';
 
 export const AnimatedRoutes = () => {

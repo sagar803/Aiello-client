@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import {
   DropdownMenu,
@@ -13,29 +13,34 @@ import {
 import { LogOut, User, User2 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import useAuth from '../services/authContext';
-import { googleLoginUrl } from '../services/authService';
-import googleIcon from '../asset/google.png'
+import SignInGoogle from './SignInGoogle';
+
 
 export const Navbar = () => {
   const {authenticated, userData, logout} = useAuth();
   const [activeTab, setActiveTab] = useState('home');
   const navigate = useNavigate();
-  
-  const handleNavigation = (tab, path) => {
-    setActiveTab(tab);
-    navigate(path);
-  };
+  const location = useLocation()
+
+  useEffect(() => {
+    let tab = location.pathname == '/' ? "home" 
+      : location.pathname == '/query' ? "query"
+      : location.pathname == '/image' ? "image"
+      : location.pathname == '/music' ? "music" 
+      : ""    
+    setActiveTab(tab)
+  },[location])
 
   return (
     <>
       <nav className='flex justify-between h-28 items-center px-20'>
-          <p onClick={(() => navigate('/'))} className='font-thin text-5xl'>AIELLO</p>
-          <ul className='flex items-center gap-2 border border-gray-400 rounded-full select-none'>
-            <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'home' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => handleNavigation('home', '/')}> Home </li>
-            <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'image' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => handleNavigation('image', '/image')}>Generate images</li>
-            <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'query' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => handleNavigation('query', '/query')}>Chat assistance</li>
-            <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'music' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => handleNavigation('music', '/music')}>Generate music</li>
-          </ul>
+            <p onClick={(() => navigate('/'))} className='font-thin text-5xl'>AIELLO</p>
+            <ul className='flex items-center gap-2 border border-gray-400 rounded-full select-none'>
+              <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'home' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => navigate('/')}> Home </li>
+              <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'image' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => navigate('/image')}>Generate images</li>
+              <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'query' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => navigate('/query')}>Chat assistance</li>
+              <li className={`text-sm rounded-full transition-all duration-300 p-2 hover:cursor-pointer ${activeTab === 'music' ? 'bg-black text-white' : 'text-black bg-white'}`} onClick={() => navigate('/music')}>Generate music</li>
+            </ul>
           {authenticated ? (
               <DropdownMenu className="relative">
                 <DropdownMenuTrigger asChild>
@@ -61,12 +66,7 @@ export const Navbar = () => {
                 </DropdownMenuContent>
               </DropdownMenu>
             ) : (
-              <div
-                className="flex items-center justify-center cursor-pointer rounded px-3 py-2 h-10 border border-gray-500"
-              >
-                <a className='m-0' href={googleLoginUrl}>{"Sign in with "}</a><img className='m-0 w-16 object-contain' src={googleIcon} />
-
-              </div>
+              <SignInGoogle />
             )}
       </nav>
       <hr className='w-full'/>

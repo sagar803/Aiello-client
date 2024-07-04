@@ -1,8 +1,7 @@
-import logo from '../../asset/download.png'
-import './Home.css'
+import logo from '../asset/download.png'
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
-import { getUser } from '../../services/authService';
+import { getUser } from '../services/authService';
 import { useEffect, useState } from 'react';
 
 
@@ -16,15 +15,18 @@ export const Home = () => {
             exit={{opacity: 0}}
         >
             <main className="w-full flex items-center justify-center">
-               <div className='w-11/12 bg-gradient-to-br from-slate-300 to-white rounded-2xl'>
-                    <div className='logo-and-des'>
-                        <img  className='main-logo' src={logo} alt="logo" />
-                        <p className='des'>AIello is a versatile app that leverages AI technology to generate high-quality images and provide chat assistance for a wide range of tasks and topics, making it an essential tool for many industries.</p>
+               <div className='w-11/12 mt-16 bg-gradient-to-br from-slate-300 to-white rounded-2xl'>
+                    <div className='flex p-10'>
+                        <img className='size-96' src={logo} alt="logo" />
+                        <p className='text-9xl font-mono'>
+                            <span> AIELLO, </span>
+                            <br />
+                            <span> All-in-One </span>
+                            <br />
+                            <span> Creative Hub </span>
+                        </p>
                     </div>
-                    <p className='main-heading'>
-                        AIELLO, All-in-One Creative Hub
-                    </p>
-
+                    <p className='px-16 pb-10'>AIello is a versatile app that leverages AI technology to generate high-quality images and provide chat assistance for a wide range of tasks and topics, making it an essential tool for many industries.</p>
                 </div>
             </main>
             <div className="card-container">
