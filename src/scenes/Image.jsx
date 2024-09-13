@@ -81,7 +81,7 @@ export const Image = () => {
             placeholder='Image Description' 
             value={query.prompt} 
             onChange={handleChange} 
-            className='text-lg bg-[#2e313e44] text-gray-400 w-[400px] min-w-[200px] h-[50px] rounded-full border border-gray-400 pl-5 md:w-[200px]'
+            className='bg-[#2e313e44] text-gray-400 m-1 w-[300px] sm:w-[400px] h-[50px] rounded-full border border-gray-400 pl-5'
           />
           <select 
             onChange={handleCountChange} 

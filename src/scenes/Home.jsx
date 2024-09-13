@@ -1,10 +1,56 @@
 import logo from '../asset/download.png'
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
+import CardsContainer from './widgets/card';
+import Card from './widgets/card';
+
 
 
 export const Home = () => {
     const navigate = useNavigate();
+    const cardData = [
+        {
+            bgColor: 'bg-query-card-bg',
+            title: 'Chat Assistance',
+            description: 'Providing intelligent assistance for various tasks, topics.',
+            buttonText: 'Launch',
+            buttonAction: () => navigate('/query'),
+            isDisabled: false,
+        },
+        {
+            bgColor: 'bg-image-card-bg',
+            title: 'Image Generation',
+            description: 'AI generates stunning images with ease and efficiency.',
+            buttonText: 'Launch',
+            buttonAction: () => navigate('/image'),
+            isDisabled: false,
+        },
+        {
+            bgColor: 'bg-code-card-bg',
+            title: 'Music Generation',
+            description: 'AI generates music using machine learning to compose melodies and harmonies.',
+            buttonText: 'Launch',
+            buttonAction: () => navigate('/music'),
+            isDisabled: false,
+        },
+        {
+            bgColor: 'bg-audio-mimic-card-bg',
+            title: 'Code Assistance',
+            description: 'AI-powered code completion, debugging, suggestions.',
+            buttonText: 'Soon...',
+            buttonAction: () => {},
+            isDisabled: true,
+        },
+        {
+            bgColor: 'bg-music-card-bg',
+            title: 'Audio Mimicking',
+            description: 'AI can mimic audio to replicate sounds or voices.',
+            buttonText: 'Soon...',
+            buttonAction: () => {},
+            isDisabled: true,
+        },
+    ];
+
 
     return (
         <motion.div
@@ -15,7 +61,7 @@ export const Home = () => {
             <main className="w-full flex items-center justify-center p-4 lg:my-10 md:p-0">
                 <div className="w-full md:w-11/12 mt-10 bg-gradient-to-br from-slate-300 to-white rounded-2xl">
                     <div className="flex flex-col md:flex-row items-center p-6 md:p-18">
-                        <img className="w-32 h-32 md:w-48 md:h-48 lg:w-80 lg:h-80 mb-6 md:mb-0" src={logo} alt="logo" />
+                        <img className="w-48 h-48 lg:w-80 lg:h-80 mb-6 md:mb-0" src={logo} alt="logo" />
                         <p className="text-4xl md:text-6xl lg:text-8xl font-mono text-center md:text-left">
                             <span> AIELLO, </span>
                             <br />
@@ -31,54 +77,17 @@ export const Home = () => {
             </main>
             <div className="flex flex-col items-center my-24 lg:my-48 w-full">
                 <h1 className="text-center text-2xl font-bold mb-8">Our So-Called Offerings</h1>
-                <div className="flex flex-col sm:flex-row justify-between items-center w-3/5 h-30 my-6 rounded-lg p-5 bg-gray-200 shadow-lg">
-                    <p className="text-lg font-semibold flex-1">Chat Assistance</p>
-                    <hr className="hidden sm:block w-12 transform rotate-90 border-t-2 border-gray-400 mx-4" />
-                    <p className="text-sm flex-1">Providing intelligent assistance for various tasks, topics.</p>
-                    <button 
-                        className="bg-gray-500 text-white rounded-lg h-12 px-6 transition-shadow duration-400 hover:shadow-md"
-                        onClick={() => navigate('/query')}>
-                        Launch
-                    </button>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between items-center w-3/5 h-30 my-6 rounded-lg p-5 bg-gray-200 shadow-lg">
-                    <p className="text-lg font-semibold flex-1">Image Generation</p>
-                    <hr className="hidden sm:block w-12 transform rotate-90 border-t-2 border-gray-400 mx-4" />
-                    <p className="text-sm flex-1">AI generates stunning images with ease and efficiency.</p>
-                    <button 
-                        className="bg-gray-500 text-white rounded-lg h-12 px-6 transition-shadow duration-400 hover:shadow-md"
-                        onClick={() => navigate('/image')}>
-                        Launch
-                    </button>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between items-center w-3/5 h-30 my-6 rounded-lg p-5 bg-gray-200 shadow-lg">
-                    <p className="text-lg font-semibold flex-1">Music Generation</p>
-                    <hr className="hidden sm:block w-12 transform rotate-90 border-t-2 border-gray-400 mx-4" />
-                    <p className="text-sm flex-1">AI generates music using machine learning to compose melodies and harmonies.</p>
-                    <button 
-                        className="bg-gray-500 text-white rounded-lg h-12 px-6 transition-shadow duration-400 hover:shadow-md"
-                        onClick={() => navigate('/music')}>
-                        Launch
-                    </button>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between items-center w-3/5 h-30 my-6 rounded-lg p-5 bg-gray-200 shadow-lg">
-                    <p className="text-lg font-semibold flex-1">Code Assistance</p>
-                    <hr className="hidden sm:block w-12 transform rotate-90 border-t-2 border-gray-400 mx-4" />
-                    <p className="text-sm flex-1">AI-powered code completion, debugging, suggestions.</p>
-                    <button 
-                        className="bg-gray-300 text-gray-500 rounded-lg h-12 px-6 cursor-not-allowed">
-                        Soon...
-                    </button>
-                </div>
-                <div className="flex flex-col sm:flex-row justify-between items-center w-3/5 h-30 my-6 rounded-lg p-5 bg-gray-200 shadow-lg">
-                    <p className="text-lg font-semibold flex-1">Audio Mimicking</p>
-                    <hr className="hidden sm:block w-12 transform rotate-90 border-t-2 border-gray-400 mx-4" />
-                    <p className="text-sm flex-1">AI can mimic audio to replicate sounds or voices.</p>
-                    <button 
-                        className="bg-gray-300 text-gray-500 rounded-lg h-12 px-6 cursor-not-allowed">
-                        Soon...
-                    </button>
-                </div>
+                {cardData.map((card, index) => (
+                    <Card
+                        key={index}
+                        bgColor={card.bgColor}
+                        title={card.title}
+                        description={card.description}
+                        buttonText='Launch'
+                        buttonAction={card.buttonAction}
+                        isDisabled={card.isDisabled}
+                    />
+                ))}
             </div>
 
         </motion.div>
